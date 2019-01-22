@@ -15,6 +15,10 @@
 		FD40824421F5918200BC02AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD40824321F5918200BC02AA /* main.m */; };
 		FD40824E21F5918200BC02AA /* JetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD40824D21F5918200BC02AA /* JetTests.m */; };
 		FD40825921F5918200BC02AA /* JetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD40825821F5918200BC02AA /* JetUITests.m */; };
+		FD40826721F59C1500BC02AA /* Temps in Resources */ = {isa = PBXBuildFile; fileRef = FD40826621F59C1500BC02AA /* Temps */; };
+		FD40826A21F59CD900BC02AA /* TempController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD40826921F59CD900BC02AA /* TempController.m */; };
+		FD40826C21F5A83000BC02AA /* JetResource.m in Sources */ = {isa = PBXBuildFile; fileRef = FD40826B21F5A83000BC02AA /* JetResource.m */; };
+		FD56D03421F6C502005F5D83 /* JetVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = FD56D03321F6C502005F5D83 /* JetVersion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,13 @@
 		FD40825421F5918200BC02AA /* JetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD40825821F5918200BC02AA /* JetUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JetUITests.m; sourceTree = "<group>"; };
 		FD40825A21F5918200BC02AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD40826621F59C1500BC02AA /* Temps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Temps; sourceTree = "<group>"; };
+		FD40826821F59CD900BC02AA /* TempController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempController.h; sourceTree = "<group>"; };
+		FD40826921F59CD900BC02AA /* TempController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempController.m; sourceTree = "<group>"; };
+		FD40826B21F5A83000BC02AA /* JetResource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JetResource.m; sourceTree = "<group>"; };
+		FD40826D21F5A84400BC02AA /* JetResource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JetResource.h; sourceTree = "<group>"; };
+		FD56D03221F6C412005F5D83 /* JetVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JetVersion.h; sourceTree = "<group>"; };
+		FD56D03321F6C502005F5D83 /* JetVersion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JetVersion.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +92,7 @@
 		FD40822821F5918000BC02AA = {
 			isa = PBXGroup;
 			children = (
+				FD40826621F59C1500BC02AA /* Temps */,
 				FD40823321F5918000BC02AA /* Jet */,
 				FD40824C21F5918200BC02AA /* JetTests */,
 				FD40825721F5918200BC02AA /* JetUITests */,
@@ -110,6 +122,12 @@
 				FD40823F21F5918200BC02AA /* LaunchScreen.storyboard */,
 				FD40824221F5918200BC02AA /* Info.plist */,
 				FD40824321F5918200BC02AA /* main.m */,
+				FD40826821F59CD900BC02AA /* TempController.h */,
+				FD40826921F59CD900BC02AA /* TempController.m */,
+				FD40826D21F5A84400BC02AA /* JetResource.h */,
+				FD40826B21F5A83000BC02AA /* JetResource.m */,
+				FD56D03221F6C412005F5D83 /* JetVersion.h */,
+				FD56D03321F6C502005F5D83 /* JetVersion.m */,
 			);
 			path = Jet;
 			sourceTree = "<group>";
@@ -237,6 +255,7 @@
 			files = (
 				FD40824121F5918200BC02AA /* LaunchScreen.storyboard in Resources */,
 				FD40823E21F5918200BC02AA /* Assets.xcassets in Resources */,
+				FD40826721F59C1500BC02AA /* Temps in Resources */,
 				FD40823C21F5918000BC02AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,8 +282,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD40823921F5918000BC02AA /* ViewController.m in Sources */,
+				FD40826A21F59CD900BC02AA /* TempController.m in Sources */,
 				FD40824421F5918200BC02AA /* main.m in Sources */,
 				FD40823621F5918000BC02AA /* AppDelegate.m in Sources */,
+				FD56D03421F6C502005F5D83 /* JetVersion.m in Sources */,
+				FD40826C21F5A83000BC02AA /* JetResource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NWS58H4MHT;
 				INFOPLIST_FILE = Jet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,6 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NWS58H4MHT;
 				INFOPLIST_FILE = Jet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
