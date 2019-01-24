@@ -47,7 +47,7 @@
     if (pageNameRange.length > 0) {
         NSString *pageFile = [pageUrl substringFromIndex:pageNameRange.location+9];
         NSURL *pageFileUrl = [NSURL URLWithString:pageFile];
-        //NSString *params = [pageFileUrl query];
+        NSString *params = [pageFileUrl query];
         NSString *content = [self loadFile:[[pageFileUrl path] stringByAppendingString:@".html"]];
         //匹配资源文件
         NSString *regexString = @"<asset>([\\w\\-\\.]*?)<\\/asset>";\
@@ -64,6 +64,19 @@
                     content = [content stringByReplacingOccurrencesOfString:m withString:[NSString stringWithFormat:@"<style type=\"text/css\">%@</style>", [self loadFile:assetFile]]];
                 } else if ([extName isEqualToString:@"js"]) {
                     content = [content stringByReplacingOccurrencesOfString:m withString:[NSString stringWithFormat:@"<script type=\"text/javascript\">%@</script>", [self loadFile:assetFile]]];
+                }
+            }
+        }
+        //注入页面参数
+        if (params) {
+            NSArray *queryList = [params componentsSeparatedByString:@"&"];
+            if (queryList) {
+                for (NSString *item in queryList) {
+                    NSRange r = [item rangeOfString:@"="];
+                    if (r.length > 0) {
+                        NSString *tags = [NSString stringWithFormat:@"#%@#", [item substringToIndex:r.location]];
+                        content = [content stringByReplacingOccurrencesOfString:tags withString:[item substringFromIndex:r.location+1]];
+                    }
                 }
             }
         }

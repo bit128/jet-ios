@@ -8,7 +8,7 @@
 
 #import "TempController.h"
 
-@interface TempController ()<WKNavigationDelegate>
+@interface TempController ()<WKNavigationDelegate,WKUIDelegate>
 
 @end
 
@@ -28,7 +28,7 @@
     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, StatusHeight, ScreenSize.width, screenHeight)
                                       configuration:webViewConfig];
     [self.webView setNavigationDelegate:self];
-    //[self.webView setUIDelegate: self];
+    [self.webView setUIDelegate: self];
     [self.webView.scrollView setBounces: NO];
     [self.webView.scrollView setShowsVerticalScrollIndicator:NO];
     [self.view addSubview:self.webView];
@@ -72,6 +72,31 @@
         decisionHandler(WKNavigationActionPolicyCancel);
     }
     NSLog(@"----> 页面路径：%@", path);
+}
+
+/**
+ * 实现 js alert 弹窗
+ */
+-(void) webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler();
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+/**
+ * 实现 js confirm 弹窗
+ */
+-(void) webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler(YES);
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        completionHandler(NO);
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 /*

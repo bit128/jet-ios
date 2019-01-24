@@ -122,12 +122,12 @@
 				FD40823F21F5918200BC02AA /* LaunchScreen.storyboard */,
 				FD40824221F5918200BC02AA /* Info.plist */,
 				FD40824321F5918200BC02AA /* main.m */,
-				FD40826821F59CD900BC02AA /* TempController.h */,
-				FD40826921F59CD900BC02AA /* TempController.m */,
 				FD40826D21F5A84400BC02AA /* JetResource.h */,
 				FD40826B21F5A83000BC02AA /* JetResource.m */,
 				FD56D03221F6C412005F5D83 /* JetVersion.h */,
 				FD56D03321F6C502005F5D83 /* JetVersion.m */,
+				FD40826821F59CD900BC02AA /* TempController.h */,
+				FD40826921F59CD900BC02AA /* TempController.m */,
 			);
 			path = Jet;
 			sourceTree = "<group>";
