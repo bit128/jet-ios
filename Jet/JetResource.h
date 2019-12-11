@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define ONLINE_SYNC     YES
+#define ONLINE_SYNC     NO
 #define SERVER_HOST     @"http://192.168.1.2:8001/"
 #define CONFIG_NAME     @"version.json"
 #define DEFAULT_PAGE    @"app-page:home"
