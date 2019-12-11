@@ -113,15 +113,15 @@
 		FD40823321F5918000BC02AA /* Jet */ = {
 			isa = PBXGroup;
 			children = (
-				FD40823421F5918000BC02AA /* AppDelegate.h */,
-				FD40823521F5918000BC02AA /* AppDelegate.m */,
-				FD40823721F5918000BC02AA /* ViewController.h */,
-				FD40823821F5918000BC02AA /* ViewController.m */,
 				FD40823A21F5918000BC02AA /* Main.storyboard */,
 				FD40823D21F5918200BC02AA /* Assets.xcassets */,
 				FD40823F21F5918200BC02AA /* LaunchScreen.storyboard */,
 				FD40824221F5918200BC02AA /* Info.plist */,
 				FD40824321F5918200BC02AA /* main.m */,
+				FD40823421F5918000BC02AA /* AppDelegate.h */,
+				FD40823521F5918000BC02AA /* AppDelegate.m */,
+				FD40823721F5918000BC02AA /* ViewController.h */,
+				FD40823821F5918000BC02AA /* ViewController.m */,
 				FD40826D21F5A84400BC02AA /* JetResource.h */,
 				FD40826B21F5A83000BC02AA /* JetResource.m */,
 				FD56D03221F6C412005F5D83 /* JetVersion.h */,

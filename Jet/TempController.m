@@ -8,7 +8,7 @@
 
 #import "TempController.h"
 
-@interface TempController ()<WKNavigationDelegate,WKUIDelegate>
+@interface TempController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate>
 
 @end
 
@@ -43,6 +43,9 @@
         [pageStack removeObjectsInRange:NSMakeRange(0, pageStack.count-1)];
         [self.navigationController setViewControllers: pageStack];
     }
+    //默认js桥接（目的让js可以检测出平台）
+    [[self.webView configuration].userContentController addScriptMessageHandler:self name:@"initWebkit"];
+    //加载页面内容
     [self loadPageContent];
 }
 
@@ -52,6 +55,8 @@
         [self.webView loadHTMLString:pageContent baseURL:[NSURL fileURLWithPath:self.jetResource.cachePath]];
     }
 }
+
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {}
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(nonnull WKNavigationAction *)navigationAction decisionHandler:(nonnull void (^)(WKNavigationActionPolicy))decisionHandler {
     NSString *path = [NSString stringWithFormat:@"%@", [navigationAction.request URL]];
@@ -71,7 +76,6 @@
     } else {
         decisionHandler(WKNavigationActionPolicyCancel);
     }
-    NSLog(@"----> 页面路径：%@", path);
 }
 
 /**
@@ -98,15 +102,5 @@
     }]];
     [self presentViewController:alertController animated:YES completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
